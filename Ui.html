@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SocioCrypt|Log-in|Sign-up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        
+:root {
+    --dark: #374151;
+    --darker: #1F2937;
+    --darkest: #111827;
+    --grey: #6B7280;
+    --pink: #EC4899;
+    --purple: #8B5CF6;
+    --light: #EEE;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+body{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #c4c3ca;
+	background-color: #1f2029;
+	overflow-x: hidden;
+}
+a {
+	cursor: pointer;
+  transition: all 200ms linear;
+}
+a:hover {
+	text-decoration: none;
+}
+.link {
+  color: #c4c3ca;
+}
+.link:hover {
+  color: #ffeba7;
+}
+p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.7;
+}
+h4 {
+  font-weight: 600;
+}
+h6 span{
+  padding: 0 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.section{
+  position: relative;
+  width: 100%;
+  display: block;
+}
+.full-height{
+  min-height: 100vh;
+}
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+}
+.checkbox:checked + label,
+.checkbox:not(:checked) + label{
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 60px;
+  height: 16px;
+  border-radius: 8px;
+  padding: 0;
+  margin: 10px auto;
+  cursor: pointer;
+  background-color: var(--purple);
+}
+.checkbox:checked + label:before,
+.checkbox:not(:checked) + label:before{
+  position: absolute;
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--pink);
+  background-color: var(--darkest);
+  font-family: 'unicons';
+  content: '\eb4f';
+  z-index: 20;
+  top: -10px;
+  left: -10px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 24px;
+  transition: all 0.5s ease;
+}
+.checkbox:checked + label:before {
+  transform: translateX(44px) rotate(-270deg);
+}
+
+
+.card-3d-wrap {
+  position: relative;
+  width: 440px;
+  max-width: 100%;
+  height: 400px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  margin-top: 20px;
+  margin: 160px 770px 100px;
+}
+.card3dwrapper {
+  width: 100%;
+  height: 100%;
+  position:absolute;    
+  top: 0;
+  left: 0;  
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: all 600ms ease-out; 
+}
+.front, .back {
+  width: 100%;
+  height: 100%;
+  background-color: #2a2b38;
+  background-image: url('./assets/8324.png');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 300%;
+  position: absolute;
+  border-radius: 6px;
+  left: 0;
+  top: 0;
+  margin-top: -100px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  height: 600px;
+  width: 600px;
+  
+}
+.back {
+  transform: rotateY(180deg);
+  
+}
+.checkbox:checked ~ .card-3d-wrap .card3dwrapper {
+  transform: rotateY(180deg);
+}
+.center-wrap{
+  position: absolute;
+  width: 100%;
+  padding: 0 35px;
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 35px) perspective(100px);
+  z-index: 20;
+  display: block;
+}
+
+
+.form-group{ 
+  position: relative;
+  display: block;
+    margin: 0;
+    padding: 0;
+}
+.form-style {
+  padding: 13px 20px;
+  padding-left: 55px;
+  height: 48px;
+  width: 70%;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  outline: none;
+  color: var(--pink);
+  background-color: var(--darker);
+  border: none;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+.form-style:focus,
+.form-style:active {
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+.input-icon {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 48px;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: left;
+  color: var(--pink);
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.form-group input:-ms-input-placeholder  {
+  color: var(--pink);
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input::-moz-placeholder  {
+  color:var(--pink);
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:-moz-placeholder  {
+  color: var(--pink);
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input::-webkit-input-placeholder  {
+  color: var(--pink);
+  opacity: 0.7;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus:-ms-input-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus::-moz-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus:-moz-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.form-group input:focus::-webkit-input-placeholder  {
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.button{  
+  border-radius: 4px;
+  height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-transition : all 200ms linear;
+  transition: all 200ms linear;
+  padding: 0 30px;
+  letter-spacing: 1px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+  border: none;
+  background-color: var(--pink);
+  color: var(--dark);
+  box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+}
+.button:active,
+.button:focus{  
+  background-color: var(--dark);
+  color: var(--pink);
+  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+.button:hover{  
+  background-color:var(--dark);
+  color:var(--pink);
+  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+}
+#text{
+    font-size: 25px;
+}
+#reglog{
+    position: relative;
+    left:20px;
+}
+#mains{
+    margin-left: 820px;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    
+	
+	<div class="section">
+        <div id="model">
+</div>
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<h6 class="mb-0 pb-3" id="text" ><span id="mains">Log In </span><span>Sign Up</span></h6>
+			          	<input class="checkbox" type="checkbox" id="checkreg" name="checkreg"/>
+			          	<label for="checkreg"></label>
+						<div class="card-3d-wrap mx-auto">
+							<div class="card3dwrapper">
+								<div class="front">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3" id="text">Log In</h4>
+											<div class="form-group">
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail1" autocomplete="off">
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="password" name="logpass1" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+												<i class="fa-solid fa-lock"></i>
+											</div>
+											<a href="./ProjectPage.html" class="button mt-4">submit</a>
+                            				<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
+				      					</div>
+			      					</div>
+			      				</div>
+								<div class="back">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3" id="text">Sign Up</h4>
+											<div class="form-group">
+												<input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+												<i class="input-icon uil uil-user"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+					
+											</div>	
+											<div class="form-group mt-2">
+												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+												<i class="fa-solid fa-lock"></i>
+											</div>
+                                            <!------------------------------------------------------------------------------------------>
+											<a href="#" class="button mt-4" onclick="Verify()">submit</a>
+				      					</div>
+			      					</div>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
+</body>
+<script>
+  function Verify(){
+        var email= document.getElementById("logemail").value;
+        var at = email.split("@");
+        console.log();
+        if(at.length!=2){
+            alert("Invalid Email");
+            return false;
+        }else{
+        for(var i=0; i< at.length; i++){
+            if(at[i] == ''){
+                alert("Invalid mail");
+                return false;
+            }
+        }
+    }
+    var name=at[0];
+    console.log(name);
+    for(var i=0; i< name.length; i++){
+          if(name[i]>='A' && name[i]<='Z' || name[i]>='a' && name[i]<='z' || name[i]>='0' && name[i]<='9' || name[i]=='.' ){
+            continue;
+          }else{
+            alert("Invalid character");
+            return false;
+          }
+    }
+    var domain=at[1];
+    var subdomain = domain.split('.');
+    console.log(subdomain);
+    if(subdomain.length!=2){
+        alert("Invalid Email 2");
+        return false;
+    }
+    var sub1 = subdomain[0];
+    for(var i=0; i< sub1.length; i++){
+        if(sub1[i]>='A' && sub1[i]<='Z' || sub1[i]>='a' && sub1[i]<='z'){
+              continue;
+        }else{
+            alert("invalid email 3");
+            return false;
+        }
+    }
+    console.log(sub1);
+    var sub2 = subdomain[1];
+    console.log(sub2);
+    for(var i=0; i< sub2.length; i++){
+        if(sub2[i]>='a' && sub2[i]<='z'){
+              continue;
+        }else{
+            alert("invalid email 4");
+            return false;
+        }
+    }
+    
+
+
+        var name= document.getElementById("logname").value;
+        if(name=='' || name==null){
+            alert('Enter a name');
+            return false;
+        }
+        var arr = name.split(" ");
+        if(arr.length!=2){
+            alert("Invalid");
+            return false;
+        }
+        console.log(arr);
+        for(var i=0; i< name.length; i++){
+          if(name[i]>='A' && name[i]<='Z' || name[i]>='a' && name[i]<='z' || name[i]==' ' ){
+            continue;
+          }else{
+            alert("Invalid character");
+            return false;
+          }
+    }
+        var fname=arr[0];
+        if(fname.length>=2){
+
+        }else{
+              alert("Fname should have at least 2 alpha");
+              return false;
+        }
+        var lname=arr[1];
+        if(fname[0]>='A' && fname[0]<='Z'){
+            
+        }else{
+            alert("Fname not Cap");
+            return false;
+        }
+        if(lname[0]>='A' && lname[0]<='Z'){
+            
+        }else{
+            alert("Lname not Cap");
+            return false;
+        }
+    
+
+        var pass= document.getElementById("logpass").value;
+        console.log(pass);
+        if(pass.length<8){
+            alert("At least 8 characters required");
+            return false;
+        }
+        for(var i=0; i< pass.length; i++){
+              if(pass[i]>='A' && pass[i]<='Z' || pass[i]>='a' && pass[i]<='z' || pass[i]>='0' && pass[i]<='9' ||pass[i]=='!'||pass[i]=='@'||pass[i]=='#'||pass[i]=='$'||pass[i]=='%'||pass[i]=='^'||pass[i]=='&'||pass[i]=='*'){
+                continue;
+              }else{
+                alert("Invalid"+ pass[i]);
+              }
+       }
+
+    
+  }
+
+  function Vallog(){
+    var email1= document.getElementById("logemail").value;
+    if(email1!="mudith1206@gmail.com"){
+      alert("Wrong");
+    }else{
+
+    }
+  }
+</script>
+</html>
